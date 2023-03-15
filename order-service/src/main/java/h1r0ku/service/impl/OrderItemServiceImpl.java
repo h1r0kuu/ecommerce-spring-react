@@ -16,13 +16,9 @@ public class OrderItemServiceImpl implements OrderItemService {
     private final OrderItemRepository orderItemRepository;
     private final ProductClient productClient;
 
-    private void increaseOrderCount(Long productId) {
-        productClient.updateOrdersCount(productId, true);
-    }
-
     @Override
     public OrderItem create(OrderItem orderItem) {
-        increaseOrderCount(orderItem.getProductId());
+        productClient.updateOrdersCount(orderItem.getProductId(), true);
         return orderItemRepository.save(orderItem);
     }
 
@@ -33,7 +29,7 @@ public class OrderItemServiceImpl implements OrderItemService {
         orderItem.setOrder(updatedOrderItem.getOrder());
         orderItem.setProductId(updatedOrderItem.getProductId());
         if(!Objects.equals(orderItem.getProductId(), updatedOrderItem.getProductId())) {
-            increaseOrderCount(updatedOrderItem.getProductId());
+            productClient.updateOrdersCount(updatedOrderItem.getProductId(), true);
         }
         return orderItemRepository.save(orderItem);
     }
