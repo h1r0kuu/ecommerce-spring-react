@@ -1,15 +1,12 @@
 import { ReactElement } from "react";
-import SecondaryNav from "./SecondaryNav/SecondaryNav";
-import PrimaryNav from "./PrimaryNav/PrimaryNav";
-import { useHeaderStyles } from "./useHeaderStyles";
+import Navigation from "./Navigation/Navigation";
+import PrimaryHeader from "./PrimaryHeader/PrimaryHeader";
 
 const Header = (): ReactElement => {
-    const classes = useHeaderStyles()
-
     return (
-        <header className={classes.header}>
-            <PrimaryNav />
-            <SecondaryNav />
+        <header>
+            <PrimaryHeader />
+            <Navigation />
         </header>
     )
 }
