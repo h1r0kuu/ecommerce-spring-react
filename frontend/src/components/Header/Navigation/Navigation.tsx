@@ -3,6 +3,7 @@ import { MDBContainer, MDBNavbar, MDBNavbarNav, MDBNavbarToggler, MDBNavbarItem,
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+import { HOME } from "../../../utils/pathConstants";
 
 
 const Navigation = (): ReactElement => {
@@ -15,7 +16,7 @@ const Navigation = (): ReactElement => {
                 <NavbarCollapse id="navbarleft" >
                     <MDBNavbarNav className="me-auto mb-2 mb-lg-0" >
                         <MDBNavbarItem>
-                            <MDBNavbarLink href="#" color="dark">
+                            <MDBNavbarLink href={HOME} color="dark">
                                 Home
                             </MDBNavbarLink>
                         </MDBNavbarItem>
